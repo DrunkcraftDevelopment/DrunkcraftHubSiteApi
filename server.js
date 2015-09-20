@@ -5,6 +5,8 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
+app.set('models', require('./models'))
+
 var port = process.env.PORT || 8085
 
 var router = express.Router()

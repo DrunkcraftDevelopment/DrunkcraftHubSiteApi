@@ -1,0 +1,10 @@
+{
+    "dev" : {
+        "dbConfig" : {
+            "driver" : "mysql",
+            "user" : "drunkcraftApi",
+            "password" : "drunkcraftApi",
+            "database" : "devDrunkApi"
+        }
+    }
+}

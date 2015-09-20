@@ -4,6 +4,8 @@
   "dependencies": {
       "express" : "~4.13.3",
       "mysql" : "~2.9.0",
+      "config" : "~1.16.0",
+      "sequelize" : "~3.9.0",
       "body-parser" : "~1.14.0"
   }
 }
