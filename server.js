@@ -4,9 +4,8 @@ var models = require('./models')
 var app = module.exports = express()
 
 //has to be after module.exports call and app set
-require('./routes')
-
-
+require('./routes/index')
+require('./routes/news')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 

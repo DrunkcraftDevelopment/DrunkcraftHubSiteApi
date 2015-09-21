@@ -1,14 +1,15 @@
-var express = require('express')
 var app = require('../server')
 
 var models = require('../models')
-
+var express = require('express')
 var router = express.Router()
 
 router.get('/', function(req, res) {
-    res.json({message:'The api server is running!'})
+    models.News.findAll().then(function(news) {
+        res.json(news); 
+    })
 })
 
-app.use('/api', router)
+app.use('/news', router)
 
 module.exports = router

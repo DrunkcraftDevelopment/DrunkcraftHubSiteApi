@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = function(sequelize, DataTypes) {
   var News = sequelize.define('News', {
     news_title: DataTypes.STRING,
@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
       }
     }
-  });
-  return News;
-};
+  })
+
+  return News
+}
