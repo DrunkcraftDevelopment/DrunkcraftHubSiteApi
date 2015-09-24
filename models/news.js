@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   var News = sequelize.define('News', {
     news_title: DataTypes.STRING,
     news_text: DataTypes.STRING,
-    news_author: DataTypes.STRING
+    created_by: DataTypes.STRING,
+    updated_by: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

@@ -11,6 +11,13 @@ app.use(bodyParser.json())
 
 app.set('models', models)
 
+//This is required to allow for same origin navigation
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var port = process.env.PORT || 8085
 
 models.sequelize.sync().then(function () {
