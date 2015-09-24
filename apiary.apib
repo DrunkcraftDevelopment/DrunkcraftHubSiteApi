@@ -1,0 +1,32 @@
+FORMAT: 1A
+HOST: http://drunkcraft.crabdance.com:8085
+
+# DrunkcraftHubApi
+
+The API for the Drunkcraft Hub Site
+
+## News Collection [/news]
+
+This can be used to get all of the data from the news table.
+
+### List All News Items [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id":1,
+                "news_title":"test title",
+                "news_text":"test text",
+                "news_author":"test author",
+                "createdAt":"2015-09-21T00:00:00.000Z",
+                "updatedAt":"2015-09-21T00:00:00.000Z"
+            }, {
+                "id":2,
+                "news_title":"test title 2",
+                "news_text":"test text 2",
+                "news_author":"test author 2",
+                "createdAt":"2015-09-23T00:00:00.000Z",
+                "updatedAt":"2015-09-23T00:00:00.000Z"
+            }
+        ]
