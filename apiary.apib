@@ -18,14 +18,54 @@ This can be used to get all of the data from the news table.
                 "id":1,
                 "news_title":"test title",
                 "news_text":"test text",
-                "news_author":"test author",
+                "created_by":"test author",
+                "updated_by": "update author",
                 "createdAt":"2015-09-21T00:00:00.000Z",
                 "updatedAt":"2015-09-21T00:00:00.000Z"
             }, {
                 "id":2,
                 "news_title":"test title 2",
                 "news_text":"test text 2",
-                "news_author":"test author 2",
+                "created_by":"test author",
+                "updated_by": "update author",
+                "createdAt":"2015-09-23T00:00:00.000Z",
+                "updatedAt":"2015-09-23T00:00:00.000Z"
+            }
+        ]
+
+### Get by News ID [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id":1,
+            "news_title":"test title",
+            "news_text":"test text",
+            "created_by":"test author",
+            "updated_by": "update author",
+            "createdAt":"2015-09-21T00:00:00.000Z",
+            "updatedAt":"2015-09-21T00:00:00.000Z"
+        }
+
+### Get by News Author [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id":1,
+                "news_title":"test title",
+                "news_text":"test text",
+                "created_by":"test author",
+                "updated_by": "update author",
+                "createdAt":"2015-09-21T00:00:00.000Z",
+                "updatedAt":"2015-09-21T00:00:00.000Z"
+            }, {
+                "id":2,
+                "news_title":"test title 2",
+                "news_text":"test text 2",
+                "created_by":"test author",
+                "updated_by": "update author",
                 "createdAt":"2015-09-23T00:00:00.000Z",
                 "updatedAt":"2015-09-23T00:00:00.000Z"
             }
