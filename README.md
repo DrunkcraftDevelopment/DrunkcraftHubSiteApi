@@ -1,5 +1,7 @@
 ##### Drunkcraft Restful API #####
 
+[![Build Status](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSiteApi.svg?branch=master)](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSiteApi)
+
 This application is to provide a server for the drunkcraft hub site to access the backend database for any information needing to be stored.
 
 In order to run this application npm, mysql, gulp and nodejs are required.
