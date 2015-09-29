@@ -5,7 +5,9 @@ HOST: http://drunkcraft.crabdance.com:8085
 
 The API for the Drunkcraft Hub Site
 
-## News Collection [/news]
+## News Collection
+
+## Get All News [/news]
 
 This can be used to get all of the data from the news table.
 
@@ -33,7 +35,12 @@ This can be used to get all of the data from the news table.
             }
         ]
 
+## Get by News ID [/news/{id}]
+
 ### Get by News ID [GET]
+
++ Parameters
+    + id: 1 (required, number) - ID of the News in form of an integer
 
 + Response 200 (application/json)
 
@@ -47,7 +54,12 @@ This can be used to get all of the data from the news table.
             "updatedAt":"2015-09-21T00:00:00.000Z"
         }
 
+## Get by News ID [/news/author/{author}]
+
 ### Get by News Author [GET]
+
++ Parameters
+    + author: test author (required, number) - ID of the author in form of an integer
 
 + Response 200 (application/json)
 
