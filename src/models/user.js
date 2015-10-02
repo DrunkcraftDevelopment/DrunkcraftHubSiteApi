@@ -6,7 +6,7 @@
         username: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false
@@ -32,13 +32,13 @@
                         this.password = encrypted
                         this.salt = salt
                         return done()
-                    }
+                    })
                 })
             },
-            verifyPassword function(password, done) {
+            verifyPassword: function(password, done) {
                return bcrypt.compare(password, this.password, function(err, result) {
                     return done(err, result)
-               }
+               })
             }
         }
       })

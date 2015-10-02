@@ -19,6 +19,6 @@
     "sequelize": "~3.9.0"
   },
   "dependencies": {
-    "bcrypt-node": "^0.1.0"
+    "bcrypt": "^0.8.5"
   }
 }
