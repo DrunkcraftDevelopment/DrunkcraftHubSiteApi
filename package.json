@@ -10,7 +10,15 @@
     "express": "~4.13.3",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
+    "jasmine-core": "^2.3.4",
+    "jsonwebtoken": "^5.0.5",
+    "karma": "^0.13.10",
+    "karma-jasmine": "^0.3.6",
     "mysql": "~2.9.0",
+    "phantomjs": "^1.9.18",
     "sequelize": "~3.9.0"
+  },
+  "dependencies": {
+    "bcrypt-node": "^0.1.0"
   }
 }

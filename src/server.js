@@ -2,7 +2,9 @@
     "use strict"
     var express = require('express')
     var bodyParser = require('body-parser')
+    var jwt = require('jsonwebtoken')
     var models = require('./models')
+    var config = require(__dirname + '/../config/config.json')['superSecret'] 
     var app = module.exports = express()
 
     //This is required to allow for same origin navigation
@@ -19,6 +21,8 @@
     app.use(bodyParser.json())
 
     app.set('models', models)
+    console.log(config.secret)
+    app.set('superSecret', config.secret)
 
 
     var port = process.env.PORT || 8085
