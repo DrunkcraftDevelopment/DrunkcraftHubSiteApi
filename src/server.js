@@ -14,16 +14,17 @@
       next();
     });
 
+    app.use(bodyParser.urlencoded({extended: true}))
+    app.use(bodyParser.json())
+
     //has to be after module.exports call and app set
     require('./routes/index')
     require('./routes/news')
-    app.use(bodyParser.urlencoded({extended: true}))
-    app.use(bodyParser.json())
+    require('./routes/user')
 
     app.set('models', models)
     console.log(config.secret)
     app.set('superSecret', config.secret)
-
 
     var port = process.env.PORT || 8085
 
