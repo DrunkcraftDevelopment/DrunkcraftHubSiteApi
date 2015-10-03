@@ -1,3 +1,4 @@
+var stylish = require('jshint-stylish')
 var jshint = require('gulp-jshint')
 var gulp = require('gulp')
 var del = require('del')
@@ -12,7 +13,8 @@ function copyFolders(srcFolder, destFolder) {
 gulp.task('jshint', function() {
     return gulp.src('src/**/*.js')
                .pipe(jshint(jshintConfig))
-               .pipe(jshint.reporter('default'))
+               .pipe(jshint.reporter(stylish))
+               .pipe(jshint.reporter('fail'))
 })
 
 gulp.task('copy', ['clean', 'jshint'], function() {
