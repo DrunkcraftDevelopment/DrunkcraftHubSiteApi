@@ -20,6 +20,6 @@
     "sequelize": "~3.9.0"
   },
   "dependencies": {
-    "bcrypt": "^0.8.5"
+    "bcryptjs": "^2.3.0"
   }
 }
