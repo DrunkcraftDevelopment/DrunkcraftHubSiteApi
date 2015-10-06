@@ -22,7 +22,7 @@
       }, {
         classMethods: {
           associate: function(models) {
-            // associations can be defined here
+            User.belongsToMany(models.Role, {through: 'UserRole'})
           }
         },
         instanceMethods: {

@@ -23,7 +23,11 @@
     require('./routes/user')
 
     app.set('models', models)
-    console.log(config.secret)
+
+    if (config.secret === 'changeMeSecret') {
+        throw 'Secret must be configured to a non-default value in the config.json.'
+    }
+       
     app.set('superSecret', config.secret)
 
     var port = process.env.PORT || 8085
