@@ -24,17 +24,17 @@
 
     app.set('models', models)
 
-    if (config.secret === 'changeMeSecret') {
-        throw 'Secret must be configured to a non-default value in the config.json.'
-    }
-       
     app.set('superSecret', config.secret)
 
     var port = process.env.PORT || 8085
 
-    models.sequelize.sync().then(function () {
-        var server = app.listen(port, function() {
-            console.log('Server started on port: ' + port)    
+    if (config.secret === 'changeMeSecret') {
+        console.log('Server stopped. Secret must be changed from the default value in the config.json')
+    } else { 
+        models.sequelize.sync().then(function () {
+            var server = app.listen(port, function() {
+                console.log('Server started on port: ' + port)    
+            })
         })
-    })
+    }
 })()

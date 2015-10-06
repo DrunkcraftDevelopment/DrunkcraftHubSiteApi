@@ -22,10 +22,10 @@
 
             models.User.findOne(whereCondition).then(function(user) {
                 if (user !== null) {
-                    var token = jwt.sign(user, 'testToken')
+                    var token = jwt.sign(user, app.get('superSecret'))
                     res.json(token)
                 } else {
-                    throw 'No User Found'
+                    res.json({'error': 'Invalid Login'})
                 }
             })
 
