@@ -4,7 +4,7 @@
     var bodyParser = require('body-parser')
     var jwt = require('jsonwebtoken')
     var models = require('./models')
-    var config = require(__dirname + '/../config/config.json')
+    var config = require('./config/config.json')
     var app = module.exports = express()
 
     //This is required to allow for same origin navigation

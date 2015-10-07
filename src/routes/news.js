@@ -3,18 +3,14 @@
     var app = require('../server')
     var models = require('../models')
     var express = require('express')
-    var jwt = require('jsonwebtoken')
     var router = express.Router()
+    var jwtService = require('../services/jwtService')
     var numberPattern = /^\d+$/
     var bodyParser = require('body-parser')
     var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
     router.use(function checkPermission(req, res, next) {
-        var token = req.get('Authorization')
-        console.log(token)
-        if (typeof token !== 'undefined') {
-            console.log(jwt.verify(token, app.get('superSecret')))
-        }
+        console.log(jwtService.verify(req))
         next()
     })
 

@@ -2,10 +2,10 @@
     "use strict"
     var app = require('../server')
     var models = require('../models')
+    var jwtService = require('../services/jwtService')
     var express = require('express')
     var router = express.Router()
     var bodyParser = require('body-parser')
-    var jwt = require('jsonwebtoken')
     var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
     function getRoleNameArray(roles) {
@@ -33,11 +33,10 @@
                 }
             }
             
-            models.User.findOne(whereCondition).then(function(user) {
+            models.User.findOne(userWhereCondition).then(function(user) {
                 if (user !== null) {
                     user.getRoles().then(function(roles) {
-                        var token = jwt.sign(getRoleNameArray(roles), app.get('superSecret'), app.get('tokenConfig'))
-                        res.json(token)
+                        res.json(jwtService.sign(getRoleNameArray(roles)))
                     })
                 } else {
                     res.json({'error': 'Invalid Login'})
@@ -45,6 +44,7 @@
             })
 
         } catch(e) {
+            console.log(e)
             res.json({'error': e})
         }
     })
