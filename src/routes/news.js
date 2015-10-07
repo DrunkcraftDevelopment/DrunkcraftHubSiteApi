@@ -19,21 +19,24 @@
             res.json(news); 
         })
     })
+
     router.get('/:id?', function(req, res) {
         var id = req.params.id
         if (numberPattern.test(id)) {
-            models.News.findById(req.params.id).then(function(newsItem) {
+            models.News.findById(id).then(function(newsItem) {
                 res.json(newsItem)
             })
         } else {
             res.json({})
         }
     })
+
     router.get('/author/:author?', function(req, res) {
         models.News.findAll({ 'where': {'created_by': req.params.author} }).then(function(news) {
             res.json(news)
         })
     })
+
     router.post('/post', urlencodedParser, function(req, res) {
         var title = req.body.title
         var author = req.body.author
@@ -44,8 +47,9 @@
             'news_text': bodyText,
             'created_by': author
         }
+
         models.News.create(newsObject).then(function(news) {
-            console.log(news)
+            res.json(news)
         })
     })
 
