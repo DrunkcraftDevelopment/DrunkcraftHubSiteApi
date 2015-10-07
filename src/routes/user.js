@@ -8,34 +8,44 @@
     var jwt = require('jsonwebtoken')
     var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+    function getRoleNameArray(roles) {
+       var roleNames = []
+       if (typeof roles !== 'undefined') {
+           roles.forEach(function(roleItem) {
+                if(typeof roleItem !== 'undefined') {
+                    roleNames.push(roleItem.role)
+                }
+           })
+       }
+       return roleNames
+    }
+
+
     router.post('/login', urlencodedParser, function(req, res) {
         try {
             var username = req.body.username
             var password = req.body.password
 
-            var whereCondition = {
+            var userWhereCondition = {
                 'where': {
                     'username': username,
                     'password': password
                 }
             }
             
-            var tokenOptions = {
-                'expiresIn': 60,
-                'algorithm': 'HS256'
-            }
-
             models.User.findOne(whereCondition).then(function(user) {
                 if (user !== null) {
-                    var token = jwt.sign(user.getRoles(), app.get('superSecret'), tokenOptions)
-                    res.json(token)
+                    user.getRoles().then(function(roles) {
+                        var token = jwt.sign(getRoleNameArray(roles), app.get('superSecret'), app.get('tokenConfig'))
+                        res.json(token)
+                    })
                 } else {
                     res.json({'error': 'Invalid Login'})
                 }
             })
 
         } catch(e) {
-            res.json({})
+            res.json({'error': e})
         }
     })
 

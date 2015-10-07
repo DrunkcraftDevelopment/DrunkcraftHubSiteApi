@@ -23,12 +23,12 @@
     require('./routes/user')
 
     app.set('models', models)
-
-    app.set('superSecret', config.secret)
+    app.set('tokenConfig', config.token)
+    app.set('superSecret', config.token.secret)
 
     var port = process.env.PORT || 8085
 
-    if (config.secret === 'changeMeSecret') {
+    if (config.token.secret === 'changeMeSecret') {
         console.log('Server stopped. Secret must be changed from the default value in the config.json')
     } else { 
         models.sequelize.sync().then(function () {
