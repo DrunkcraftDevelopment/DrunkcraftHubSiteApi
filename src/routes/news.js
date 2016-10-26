@@ -8,9 +8,10 @@
 
     router.get('/', function(req, res) {
         models.News.findAll().then(function(news) {
-            res.json(news); 
+            res.json(news);
         })
     })
+
     router.get('/:id?', function(req, res) {
         var id = req.params.id
         if (numberPattern.test(id)) {
@@ -21,6 +22,7 @@
             res.json({})
         }
     })
+    
     router.get('/author/:author?', function(req, res) {
         models.News.findAll({ 'where': {'created_by': req.params.author} }).then(function(news) {
             res.json(news)
