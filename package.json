@@ -4,13 +4,13 @@
   "repository": "https://github.com/DrunkcraftDevelopment/DrunkcraftHubSiteApi",
   "license": "GPL-2.0",
   "devDependencies": {
-    "body-parser": "~1.14.0",
-    "config": "~1.16.0",
-    "del": "^2.0.2",
-    "express": "~4.13.3",
-    "gulp": "^3.9.0",
-    "gulp-jshint": "^1.11.2",
-    "mysql": "~2.9.0",
-    "sequelize": "~3.9.0"
+    "body-parser": "~1.15.2",
+    "config": "~1.21.0",
+    "del": "^2.2.2",
+    "express": "~4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.2",
+    "mysql": "~2.11.1",
+    "sequelize": "~3.24.6"
   }
 }
